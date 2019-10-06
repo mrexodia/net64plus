@@ -121,7 +121,7 @@ export class Emulator {
     this.process = winProcess.Process(processId)
     this.process.open()
     this.baseAddress = -1
-    for (let i = 0x00000000; i <= 0x72D00000; i += 0x1000) {
+    for (let i = 0x00000000; i <= 0xFFFE0000; i += 0x1000) {
       const buf1 = this.process.readMemory(i, 4)
       if (typeof buf1 !== 'object') continue
       const val1 = buf1.readUInt32LE(0)
